@@ -41,6 +41,20 @@ function scrollActive(){
     })
 }
 
+// Function to add 'active' class to the clicked resume item
+document.addEventListener('DOMContentLoaded', () => {
+    const resumeItems = document.querySelectorAll('.resume__item');
+
+    resumeItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Remove 'active' class from all items
+            resumeItems.forEach(el => el.classList.remove('active'));
+            // Add 'active' class to the clicked item
+            item.classList.add('active');
+        });
+    });
+});
+
 /*===== SCROLL REVEAL ANIMATION =====*/
 const sr = ScrollReveal({
     origin: 'top',
@@ -60,6 +74,12 @@ sr.reveal('.about__subtitle', {delay: 300})
 sr.reveal('.about__profession', {delay: 400})
 sr.reveal('.about__text', {delay: 500})
 sr.reveal('.about__social-icon', {delay: 600, interval: 200})
+
+/*SCROLL RESUME*/
+sr.reveal('.resume__title', {})
+sr.reveal('.resume__content', { interval: 200 })
+sr.reveal('.resume__item', { delay: 300 })
+
 
 /*SCROLL SKILLS*/
 sr.reveal('.skills__subtitle', {})
